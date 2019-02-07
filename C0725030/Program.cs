@@ -15,7 +15,11 @@ namespace C0725030
 
             //Question 2-1 (create object classes)
             var a = new TestOuestion2();
-            a.PlayingWithForLoops();
+            //a.PlayingWithForLoops();
+
+            var b = new BirthdayParty();
+            b.setupPartyList();
+            b.printPartyList();
 
         }
     }
@@ -87,7 +91,7 @@ namespace C0725030
         public Dog tail;
         public Dog temporary;
 
-        public void pea()
+        public void setupPartyList()
         {
             Peanut = new Dog("Peanut", "Bichon");
             Fifi = new Dog("Fifi", "Poodle");
@@ -104,6 +108,17 @@ namespace C0725030
             Roy.nextDog = null;
             head = Peanut;
             tail = Roy;
+        }
+        public void printPartyList(Dog startOfList, Dog endOfList)
+        {
+            string inviteList = "*--";
+            temporary = startOfList;
+
+            while (temporary.nextDog != null)
+            {
+                inviteList += temporary.dogName + " * --- * ";
+            }
+            return inviteList;
         }
     }
 }
