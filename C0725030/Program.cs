@@ -40,8 +40,8 @@ namespace C0725030
             //    Console.WriteLine("I am in the for loop");
             //}
 
-            //Question 2-3 will run for 10 times
-            for (; MyMethod();) 
+            //Question 2-3 will run for 10 times (for loop or while loop)
+            while (MyMethod()) 
             {
                 if (myFavoriteVariable > 10)
                 {
@@ -60,5 +60,31 @@ namespace C0725030
         //{
         //    return true;
         //}
+    }
+    
+    //Question about Nodes + Linked List
+    class Dog
+    {
+        public Dog(string name, string breed)
+        {
+            dogName = name;
+            dogBreed = breed;
+        }
+
+        public string dogName;
+        public string dogBreed;
+        public Dog nextDog;
+        public Dog previousDog;
+    }
+    class BirthdayParty
+    {
+        public Dog Peanut;
+        public Dog Fifi;
+        public Dog Clarence;
+        public Dog Roy;
+
+        public Dog head;
+        public Dog tail;
+        public Dog temporary;
     }
 }
