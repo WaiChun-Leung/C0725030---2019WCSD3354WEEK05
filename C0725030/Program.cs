@@ -20,6 +20,7 @@ namespace C0725030
             var b = new BirthdayParty();
             b.setupPartyList();
             Console.WriteLine(b.printPartyList());
+            Console.WriteLine(b.printPartyList_reverse());
         }
     }
     class TestOuestion2
@@ -123,22 +124,22 @@ namespace C0725030
             tail = Roy;
         }
         //Print the party list from the head
-        //public string printPartyList()
-        //{
-        //    string inviteList = "*--";
-        //    temporary = head;
+        public string printPartyList()
+        {
+            string inviteList = "*--";
+            temporary = head;
 
-        //    while (temporary.nextDog != null)
-        //    {      
-        //        inviteList += temporary.dogName + " * --- * ";
-        //        temporary = temporary.nextDog;
-        //    }
-        //    inviteList += temporary.dogName + " * --- * ";
-        //    return inviteList;
-        //}
+            while (temporary.nextDog != null)
+            {
+                inviteList += temporary.dogName + " * --- * ";
+                temporary = temporary.nextDog;
+            }
+            inviteList += temporary.dogName + " * --- * ";
+            return inviteList;
+        }
 
         //Print the party list from the end
-        public string printPartyList()
+        public string printPartyList_reverse()
         {
             string inviteList = "*--";
             temporary = tail;
