@@ -19,8 +19,7 @@ namespace C0725030
 
             var b = new BirthdayParty();
             b.setupPartyList();
-            b.printPartyList();
-
+            Console.WriteLine(b.printPartyList());
         }
     }
     class TestOuestion2
@@ -45,7 +44,7 @@ namespace C0725030
             //}
 
             //Question 2-3 will run for 10 times (for loop or while loop)
-            while (MyMethod()) 
+            while (MyMethod())
             {
                 if (myFavoriteVariable > 10)
                 {
@@ -65,7 +64,7 @@ namespace C0725030
         //    return true;
         //}
     }
-    
+
     //Question about Nodes + Linked List
     class Dog
     {
@@ -85,6 +84,8 @@ namespace C0725030
         public Dog Peanut;
         public Dog Fifi;
         public Dog Clarence;
+        public Dog Giselle;
+        public Dog Lulu;
         public Dog Roy;
 
         public Dog head;
@@ -96,28 +97,58 @@ namespace C0725030
             Peanut = new Dog("Peanut", "Bichon");
             Fifi = new Dog("Fifi", "Poodle");
             Clarence = new Dog("Clarence", "German Sheppard");
+            Giselle = new Dog("Giselle", "Border Collie");
+            Lulu = new Dog("Lulu", "Shitzu");
             Roy = new Dog("Roy", "Beagle");
 
             Peanut.previousDog = null;
             Peanut.nextDog = Fifi;
+
             Fifi.previousDog = Peanut;
             Fifi.nextDog = Clarence;
+
             Clarence.previousDog = Fifi;
-            Clarence.nextDog = Roy;
-            Roy.previousDog = Clarence;
+            Clarence.nextDog = Giselle;
+
+            Giselle.previousDog = Clarence;
+            Giselle.nextDog = Lulu;
+
+            Lulu.previousDog = Giselle;
+            Lulu.nextDog = Roy;
+
+            Roy.previousDog = Lulu;
             Roy.nextDog = null;
+
             head = Peanut;
             tail = Roy;
         }
-        public void printPartyList(Dog startOfList, Dog endOfList)
+        //Print the party list from the head
+        //public string printPartyList()
+        //{
+        //    string inviteList = "*--";
+        //    temporary = head;
+
+        //    while (temporary.nextDog != null)
+        //    {      
+        //        inviteList += temporary.dogName + " * --- * ";
+        //        temporary = temporary.nextDog;
+        //    }
+        //    inviteList += temporary.dogName + " * --- * ";
+        //    return inviteList;
+        //}
+
+        //Print the party list from the end
+        public string printPartyList()
         {
             string inviteList = "*--";
-            temporary = startOfList;
+            temporary = tail;
 
-            while (temporary.nextDog != null)
+            while (temporary.previousDog != null)
             {
                 inviteList += temporary.dogName + " * --- * ";
+                temporary = temporary.previousDog;
             }
+            inviteList += temporary.dogName + " * --- * ";
             return inviteList;
         }
     }
