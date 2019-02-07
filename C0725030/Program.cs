@@ -86,5 +86,24 @@ namespace C0725030
         public Dog head;
         public Dog tail;
         public Dog temporary;
+
+        public void pea()
+        {
+            Peanut = new Dog("Peanut", "Bichon");
+            Fifi = new Dog("Fifi", "Poodle");
+            Clarence = new Dog("Clarence", "German Sheppard");
+            Roy = new Dog("Roy", "Beagle");
+
+            Peanut.previousDog = null;
+            Peanut.nextDog = Fifi;
+            Fifi.previousDog = Peanut;
+            Fifi.nextDog = Clarence;
+            Clarence.previousDog = Fifi;
+            Clarence.nextDog = Roy;
+            Roy.previousDog = Clarence;
+            Roy.nextDog = null;
+            head = Peanut;
+            tail = Roy;
+        }
     }
 }
